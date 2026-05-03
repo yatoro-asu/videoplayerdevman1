@@ -1,0 +1,18 @@
+.first-block {
+  background-color: #FFDC73;
+  font-family: sans-serif;
+  margin: 5px;
+  padding: 5px;
+}
+.second-block {
+  background-color: #61D89F;
+  font-family: sans-serif;
+  margin: 5px;
+  padding: 5px;
+}
+
+.container {
+  background-color: #D660CC;
+  margin: 5px;
+  float:left; /* Это чтобы контейнеры располагались в строчку, а не в столбик */
+}

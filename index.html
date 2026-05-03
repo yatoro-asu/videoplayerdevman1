@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Видео</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="fonts/video-svgrepo-com.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        display: flex;
+      }
+      .player {
+        width: 800px;
+        height: 600px;
+        display: flex;
+        flex-direction: column
+      }
+      .js-video-container {
+        flex-grow: 1; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+      }
+      .buttons {
+        background: black; 
+        display: flex;
+        justify-content: flex-start; 
+        align-items: flex-end;
+      }
+      .button {
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        margin: 10px;
+      }
+      .icon {
+        color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="player" class="player">    
+        
+          <div class="js-video-container"></div>
+          
+          <div class="buttons">
+            <div>
+            
+              <button class="js-play-button button">
+                <i class="fa fa-play icon" aria-hidden="true"></i>
+              </button>
+              <button class="js-pause-button button" hidden>
+                <i class="fa fa-pause icon" aria-hidden="true"></i>
+              </button>
+              <button class="js-volume-button button" hidden>
+                <i class="fa fa-volume-up icon" aria-hidden="true"></i>
+              </button>
+              <button class="js-mute-button button">
+                <i class="fa fa-volume-off icon" aria-hidden="true"></i>
+              </button>
+            </div>
+            <button class="js-fullscreen-button button">
+              <i class="fa fa-expand icon" aria-hidden="true"></i>
+            </button>
+          </div>
+    </div>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
+    <script src="player.js"></script>
+    <script type="text/javascript">
+      createPlayer({elementId: 'player'});
+    </script>
+  </body>
+</html>
