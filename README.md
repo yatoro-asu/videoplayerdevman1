@@ -8,6 +8,11 @@
 
 1. Откройте `index.html` в браузере — плеер готов к работе.
 
+## Как выглядит плеер
+
+<img width="1047" height="782" alt="videoplayer" src="https://github.com/user-attachments/assets/95a689ca-efc3-4305-ba34-fa7b3a590874" />
+
+
 **Для разработки с автообновлением:**
 
 ```bash
