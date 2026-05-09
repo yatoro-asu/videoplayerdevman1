@@ -26,6 +26,7 @@ function createPlayer({
 
   const videoContainer = videoContainers[0];
   player.attachToElement(videoContainer);
+  player.setVolume(100);
 
   const $playerContainer = $(playerContainer);
 
@@ -63,13 +64,18 @@ function createPlayer({
   (function activateVolumeButtons(){
     const $volumeButton = $playerContainer.find('.js-volume-button');
     const $muteButton = $playerContainer.find('.js-mute-button');
+    const maxVolume = 100;
 
-    $volumeButton.click(()=>{
-      player.setVolume(100);
-    });
-    $muteButton.click(()=>{
-      player.setVolume(0);
-    });
+    function toggleVolume() {
+      if (player.getVolume() > 0) {
+        player.setVolume(0);
+      } else {
+        player.setVolume(maxVolume);
+      }
+    }
+
+    $muteButton.click(toggleVolume);
+    $volumeButton.click(toggleVolume);
 
     function activateVolumeButton(){
       $volumeButton.attr("hidden", false);
@@ -83,9 +89,9 @@ function createPlayer({
 
     function toggleVolumeMuteBtns(){
       if (player.getVolume() > 0){
-        activateMuteBtn();
-      } else {
         activateVolumeButton();
+      } else {
+        activateMuteBtn();
       }
     }
 
