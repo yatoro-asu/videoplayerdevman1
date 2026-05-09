@@ -14,7 +14,7 @@
 
 или же:
 
-*[Смотреть демо онлайн →](https://yatoro-asu.github.io/videoplayerdevman1/)**
+*[Смотреть демо онлайн →](https://yatoro-asu.github.io/videoplayerdevman1/)*
 
 **Для разработки с автообновлением:**
 
