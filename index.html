@@ -1,15 +1,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Видео</title>
+    <title>Видеоплеер</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="fonts/video-svgrepo-com.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      body {
-        display: flex;
-      }
-      .player {
+      .vp-player {
         width: 800px;
         height: 600px;
         display: flex;
@@ -21,47 +18,80 @@
         justify-content: center; 
         align-items: center; 
       }
-      .buttons {
+      .vp-controls {
         background: black; 
         display: flex;
         justify-content: flex-start; 
         align-items: flex-end;
+        position: relative;
+        z-index: 10;
       }
-      .button {
+      .vp-button {
         border: none;
         cursor: pointer;
         background: transparent;
         margin: 10px;
       }
-      .icon {
+      .vp-icon {
         color: white;
         font-size: 20px;
+      }
+      .vp-time {
+        color: white;
+        font-size: 14px;
+        margin: 0 5px;
+      }
+      .space {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+      }
+      .js-progress {
+        width: 100%;
+        height: 5px;
+        background: #ccc;
+        cursor: pointer;
+        position: relative;
+      }
+      .js-progress-slider {
+        height: 100%;
+        background: white;
+        width: 0%;
       }
     </style>
   </head>
   <body>
-    <div id="player" class="player">    
+    <div id="player" class="vp-player">    
         
           <div class="js-video-container"></div>
           
-          <div class="buttons">
+          <div class="vp-controls">
             <div>
             
-              <button class="js-play-button button">
-                <i class="fa fa-play icon" aria-hidden="true"></i>
+              <button class="js-play-button vp-button">
+                <i class="fa fa-play vp-icon" aria-hidden="true"></i>
               </button>
-              <button class="js-pause-button button" hidden>
-                <i class="fa fa-pause icon" aria-hidden="true"></i>
+              <button class="js-pause-button vp-button" hidden>
+                <i class="fa fa-pause vp-icon" aria-hidden="true"></i>
               </button>
-              <button class="js-volume-button button" hidden>
-                <i class="fa fa-volume-up icon" aria-hidden="true"></i>
+              <button class="js-volume-button vp-button">
+                <i class="fa fa-volume-up vp-icon" aria-hidden="true"></i>
               </button>
-              <button class="js-mute-button button">
-                <i class="fa fa-volume-off icon" aria-hidden="true"></i>
+              <button class="js-mute-button vp-button" hidden>
+                <i class="fa fa-volume-off vp-icon" aria-hidden="true"></i>
               </button>
+              <span class="js-current-time vp-time">00:00</span>
+              <span class="vp-time">/</span>
+              <span class="js-duration vp-time">00:00</span>
             </div>
-            <button class="js-fullscreen-button button">
-              <i class="fa fa-expand icon" aria-hidden="true"></i>
+            <div class="space">
+              <div class="js-progress">
+                <div class="js-progress-slider"></div>
+              </div>
+            </div>
+            <button class="js-fullscreen-button vp-button">
+              <i class="fa fa-expand vp-icon" aria-hidden="true"></i>
             </button>
           </div>
     </div>
