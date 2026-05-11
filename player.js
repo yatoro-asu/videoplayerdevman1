@@ -105,7 +105,6 @@ function createPlayer({
   });
 
   function formatTime(seconds) {
-    // StackOverflow snippet https://stackoverflow.com/a/52560608
     const format = val => `0${Math.floor(val)}`.slice(-2);
     const hours = seconds / 3600;
     const minutes = (seconds % 3600) / 60;
@@ -134,26 +133,24 @@ function createPlayer({
   })();
 
   function throttle(func, ms) {
-    // Source code snippet https://learn.javascript.ru/task/throttle
-
     let isThrottled = false,
       savedArgs,
       savedThis;
 
     function wrapper() {
 
-      if (isThrottled) { // (2)
+      if (isThrottled) {
         savedArgs = arguments;
         savedThis = this;
         return;
       }
 
-      func.apply(this, arguments); // (1)
+      func.apply(this, arguments);
 
       isThrottled = true;
 
       setTimeout(function() {
-        isThrottled = false; // (3)
+        isThrottled = false;
         if (savedArgs) {
           wrapper.apply(savedThis, savedArgs);
           savedArgs = savedThis = null;
@@ -185,14 +182,8 @@ function createPlayer({
     player.on(Playable.VIDEO_EVENTS.DURATION_UPDATED, updateSliderWidth);
     updateSliderWidth();
 
-    // Code snippet from https://codepen.io/frytyler/pen/juGfk
-
     function updateVideoProgress(x){
       const durationSeconds = player.getDuration();
-
-      //calculate drag position
-      //and update video currenttime
-      //as well as progress bar
 
       var relPosition = x - $progress.offset().left;
       var percentage = 100 * relPosition / $progress.width();
@@ -202,7 +193,7 @@ function createPlayer({
       if(percentage < 0) {
         percentage = 0;
       }
-      setSliderWidth(percentage);  // Redraw before CURRENT_TIME_UPDATED event for better responsiveness
+      setSliderWidth(percentage);
       seconds = durationSeconds * percentage / 100;
       player.seekTo(seconds);
     };
